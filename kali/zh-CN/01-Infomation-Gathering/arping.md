@@ -1,5 +1,9 @@
 # arping
-> 原文地址：https://blog.csdn.net/wz_cow/article/details/80870876  
+
+ARP协议是“Address Resolution Protocol”（地址解析协议）的缩写。在同一以太网中，通过地址解析协议，源主机可以通过目的主机的IP地址获得目的主机的MAC地址。arping程序就是完成上述过程的程序。
+
+arping，用来向局域网内的其它主机发送ARP请求的指令，它可以用来测试局域网内的某个IP是否已被使用。   
+> 引用自：https://blog.csdn.net/wz_cow/article/details/80870876  
 
 ## 命令格式
  `arping [-AbDfhqUV] [-c count] [-w deadline] [-s source] -I interface destination`
@@ -48,3 +52,25 @@ sudo仍然是权限问题。
 ![img](/images/arping/arping-03.png)  
 
 使用该命令前，建议使用`ifconfig`来看一下你要使用的网卡。
+
+### 查看某个IP是否被不同的MAC占用
+
+命令: `arping -d 1.1.1.3`  
+
+![img](/images/arping/arping-04.png)  
+
+这个，，u1s1我也没看懂。
+
+### 查看某个MAC地址的IP，要在同一子网才查得到
+
+命令: `arping -c 1 [MAC]`
+
+这个因为我没有用于测试的mac地址,就不做演示了。  
+
+### 确定MAC和IP的对应，确定指定的网卡绑定了指定的IP
+
+命令: `arping -c 1  -T [IP]  [MAC]`
+
+### 确定IP和MAC对应，确定指定IP绑在了指定的网卡上
+
+命令: `arping -c 1  -t  [MAC] [IP]`
