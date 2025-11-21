@@ -14,4 +14,6 @@ if (queryString === 'blog') {
     window.location.href = 'https://uegee.com/rss.xml';
 } else if (queryString === 'steam') {
     window.location.href = 'https://steamcommunity.com/id/do0rtea/';
+} else if (queryString === 'donate') {
+    window.location.href = './donate.html'
 }
