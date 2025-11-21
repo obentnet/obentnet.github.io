@@ -111,18 +111,13 @@
   
     <!-- 页面加载动画脚本 -->
     <script>
-      // 页面加载时的入场动画
-      document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', () => {
         const leftContent = document.getElementById('left-content');
         const rightAvatar = document.getElementById('right-avatar');
-      
-        // 初始状态
         leftContent.style.opacity = '0';
         leftContent.style.transform = 'translateX(-50px)';
         rightAvatar.style.opacity = '0';
         rightAvatar.style.transform = 'translateX(50px)';
-      
-        // 动画效果
         setTimeout(() => {
           leftContent.style.opacity = '1';
           leftContent.style.transform = 'translateX(0)';
@@ -131,7 +126,7 @@
         }, 300);
       });
     </script>
-    <script src="./static/rss.js"></script>
+    <!-- <script src="./static/rss.js"></script> -->
   </body>
 
 </html>
