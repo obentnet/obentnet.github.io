@@ -1,0 +1,77 @@
+@layer utilities {
+  /* 定义泛光移动动画 */
+  .float-animation-1 {
+    animation: float1 5s ease-in-out infinite;
+  }
+  .float-animation-2 {
+    animation: float2 5s ease-in-out infinite;
+  }
+}
+
+@keyframes float1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(20px, 30px);
+  }
+  50% {
+    transform: translate(40px, 10px);
+  }
+  75% {
+    transform: translate(10px, 40px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes float2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-30px, 10px);
+  }
+  50% {
+    transform: translate(-10px, 30px);
+  }
+  75% {
+    transform: translate(-20px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.btnhonver{
+  transition: all .3s;
+}
+.btnhonver:hover{
+  color: black;
+  background-color: white;
+}
+
+.post{
+  margin-top: 2em;
+  max-width: 29em;
+}
+
+.post-link{
+  color: #D8B9A4;
+  transition: all .3s;
+}
+
+.post-link:hover{
+  color: #8A6956;
+}
+
+.post-time{
+  font-size: 10px;
+}
+
+article{
+  background-color: #333333;
+  padding: 1em;
+  border-radius: 10px;
+}

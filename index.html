@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UEG.EE | 我的小页</title>
+  <script src="./static/script.js"></script>
+  <!-- 引入Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入Font Awesome图标 -->
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./static/style.css?v=0.2">
+  <meta name="description" content="狱杰的小页,UEG.EE">
+  <meta name="keywords" content="狱杰,狱杰的小页,uegee,html,css,js">
+  <meta name="author" content="狱杰UEGEE">
+  <meta name="robots" content="index,follow">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.uegee.com/head.jpg">
+  <meta name="theme-color" content="#333333">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="狱杰的小页">
+  <meta property="og:description" content="Hi!这是我的小页">
+  <meta property="og:site_name" content="狱杰的小页">
+  <meta property="og:url" content="https://ueg.ee/">
+  <meta property="og:image" content="https://cdn.uegee.com/head.jpg">
+
+
+
+  <!-- 自定义配置 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FFFFFF',
+            secondary: '#333333',
+            accent: '#666666',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+</head>
+<body class="bg-black text-white min-h-screen flex flex-col items-center justify-center px-4 md:px-8 overflow-hidden">
+  <!-- 主容器 -->
+  <div class="container mx-auto max-w-5xl flex flex-col md:flex-row items-center justify-between relative z-10">
+    <!-- 左侧内容区 -->
+    <div class="flex flex-col items-center md:items-start mb-10 md:mb-0 transition-all duration-700" id="left-content">
+      <!-- 品牌标识 -->
+      <div class="text-center md:text-left mb-8">
+        <h1 class="text-[clamp(3rem,8vw,5rem)] font-bold tracking-tighter leading-none">UEG.EE</h1>
+        <p class="text-accent text-lg md:text-xl mt-2 tracking-widest">My Little Page😊</p>
+      </div>
+      
+      <!-- 导航按钮 -->
+      <div class="flex flex-wrap justify-center md:block gap-3 md:gap-4">
+
+        <a href="https://uegee.com/" class="btnhonver bg-secondary text-white px-6 py-3 rounded-md link-hover inline-block text-center" target="_blank">
+          <i class="fa fa-home" aria-hidden="true"></i> Blog
+        </a>
+
+        <a href="https://uegee.com/rss.xml" class="btnhonver bg-secondary text-white px-6 py-3 rounded-md link-hover inline-block text-center" target="_blank">
+          <i class="fa fa-rss" aria-hidden="true"></i> RSS
+        </a>
+
+        <a href="https://github.com/obentnet" class="btnhonver bg-secondary text-white px-6 py-3 rounded-md link-hover inline-block text-center" target="_blank">
+          <i class="fa fa-github" aria-hidden="true"></i> GitHub
+        </a>
+
+        <a href="https://steamcommunity.com/id/do0rtea/" class="btnhonver bg-secondary text-white px-6 py-3 rounded-md link-hover inline-block text-center" target="_blank">
+          <i class="fa fa-steam" aria-hidden="true"></i> STEAM
+        </a>
+
+      </div>
+
+      <!-- <div class="post">
+        <div id="loading" class="loading">加载中...</div>
+        <div id="error" class="error" style="display: none;"></div>
+        <div id="posts-container" class="posts-container" style="display: none;"></div>
+      </div> -->
+
+    </div>
+    
+    <!-- 右侧头像区 -->
+    <div class="relative transition-all duration-700" id="right-avatar">
+      <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white/20 avatar-pulse">
+        <!-- 使用占位图服务，模拟棕色头发人物头像 -->
+        <img src="https://cdn.uegee.com/head.jpg" alt="个人头像" class="w-full h-full object-cover">
+      </div>
+      
+      <!-- 装饰元素 -->
+      <div class="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-white/30 rounded-tl-full"></div>
+      <div class="absolute -bottom-4 -right-4 w-20 h-20 border-b-2 border-r-2 border-white/30 rounded-br-full"></div>
+    </div>
+  </div>
+  
+  <!-- 背景装饰（添加了动画类） -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-white/5 rounded-full blur-3xl float-animation-1"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-white/5 rounded-full blur-3xl float-animation-2"></div>
+  </div>
+  
+  <!-- 页面加载动画脚本 -->
+  <script>
+    // 页面加载时的入场动画
+    document.addEventListener('DOMContentLoaded', () => {
+      const leftContent = document.getElementById('left-content');
+      const rightAvatar = document.getElementById('right-avatar');
+      
+      // 初始状态
+      leftContent.style.opacity = '0';
+      leftContent.style.transform = 'translateX(-50px)';
+      rightAvatar.style.opacity = '0';
+      rightAvatar.style.transform = 'translateX(50px)';
+      
+      // 动画效果
+      setTimeout(() => {
+        leftContent.style.opacity = '1';
+        leftContent.style.transform = 'translateX(0)';
+        rightAvatar.style.opacity = '1';
+        rightAvatar.style.transform = 'translateX(0)';
+      }, 300);
+    });
+  </script>
+  <script src="./static/rss.js"></script>
+</body>
+</html>
