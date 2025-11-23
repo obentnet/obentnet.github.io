@@ -1,46 +1,51 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>赞助支持</title>
+    <title>Donation Page | UEG.EE</title>
     <link rel="stylesheet" href="./static/donate.css">
+    <link rel="stylesheet" href="./static/font_obmcjw6k9vf/iconfont.css">
 </head>
+
 <body class="theme-light">
     <button class="theme-toggle" id="themeToggle">🌙 暗夜模式</button>
-    
+
     <div class="container">
-        <h1>感谢您的支持</h1>
-        <p class="subtitle">选择您喜欢的支付方式进行赞助</p>
-        
+        <h1>Cup of tea?</h1>
+        <p class="subtitle">Thank for you donation</p>
+
         <div class="qr-container">
             <div class="qr-code">
                 <img src="https://cdn.uegee.com/anheyu/WeChatPAY.png" alt="微信支付二维码" class="qr-img" id="qrImage">
             </div>
         </div>
-        
+
         <div class="payment-options">
-            <button class="payment-btn active" data-payment="wechat">💬 微信</button>
-            <button class="payment-btn" data-payment="alipay">⽀ 支付宝</button>
-            <button class="payment-btn" data-payment="usdt">🌐 USDT(TORN)</button>
-            <button class="payment-btn" data-payment="qq">🐧 QQ</button>
+            <button class="payment-btn active" data-payment="wechat"><span class="iconfont icon-weixin"></span>WeChat</button>
+            <button class="payment-btn" data-payment="alipay"><span class="iconfont icon-zhifubaozhifu"></span>AliPay</button>
+            <button class="payment-btn" data-payment="usdt"><span class="iconfont icon-USDT"></span>USDT(TORN)</button>
+            <button class="payment-btn" data-payment="qq"><span class="iconfont icon-QQ"></span>QQ</button>
         </div>
-        
+
         <div class="instructions">
-            <h3>赞助列表</h3>
+            <h3>赞助列表 <span class="iconfont icon-zanzhu"></span></h3>
             <ol>
                 <li>暂无</li>
             </ol>
         </div>
+
+        <div class="copy">Design By UEGEE | Powered By Neote</div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const themeToggle = document.getElementById('themeToggle');
             const body = document.body;
             const paymentButtons = document.querySelectorAll('.payment-btn');
             const qrImage = document.getElementById('qrImage');
-            
+
             // 支付方式对应的二维码图片URL
             const paymentImages = {
                 wechat: 'https://cdn.uegee.com/anheyu/WeChatPAY.png',
@@ -48,16 +53,16 @@
                 usdt: 'https://img.uegee.com/i/2025/11/21/gpjmyi.png',   // 替换为实际的USDT二维码URL
                 qq: 'https://cdn.uegee.com/anheyu/QQPay.png'       // 替换为实际的QQ二维码URL
             };
-            
+
             // 检查本地存储的主题设置
             const savedTheme = localStorage.getItem('theme') || 'light';
             if (savedTheme === 'dark') {
                 body.className = 'theme-dark';
                 themeToggle.textContent = '☀️ 白天模式';
             }
-            
+
             // 主题切换功能
-            themeToggle.addEventListener('click', function() {
+            themeToggle.addEventListener('click', function () {
                 if (body.classList.contains('theme-light')) {
                     body.className = 'theme-dark';
                     themeToggle.textContent = '☀️ 白天模式';
@@ -68,16 +73,16 @@
                     localStorage.setItem('theme', 'light');
                 }
             });
-            
+
             // 支付方式切换功能
             paymentButtons.forEach(button => {
-                button.addEventListener('click', function() {
+                button.addEventListener('click', function () {
                     const paymentType = this.getAttribute('data-payment');
-                    
+
                     // 更新按钮状态
                     paymentButtons.forEach(btn => btn.classList.remove('active'));
                     this.classList.add('active');
-                    
+
                     // 更新二维码图片
                     qrImage.src = paymentImages[paymentType];
                     qrImage.alt = `${paymentType}支付二维码`;
@@ -86,5 +91,5 @@
         });
     </script>
 </body>
-</html>
 
+</html>
