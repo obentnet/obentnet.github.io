@@ -10,7 +10,7 @@
 </head>
 
 <body class="theme-light">
-    <button class="theme-toggle" id="themeToggle">🌙 暗夜模式</button>
+    <button class="theme-toggle" id="themeToggle">🌙</button>
 
     <div class="container">
         <h1>Cup of tea?</h1>
@@ -30,13 +30,14 @@
         </div>
 
         <div class="instructions">
-            <h3>赞助列表 <span class="iconfont icon-zanzhu"></span></h3>
+            <h3>Donate List <span class="iconfont icon-zanzhu"></span></h3>
             <ol>
-                <li>暂无</li>
+                None.
+                <!-- <li>None.</li> -->
             </ol>
         </div>
 
-        <div class="copy">Design By UEGEE | Powered By Neote</div>
+        <div class="copy">Design By UEGEE</div>
     </div>
 
     <script>
@@ -46,44 +47,35 @@
             const paymentButtons = document.querySelectorAll('.payment-btn');
             const qrImage = document.getElementById('qrImage');
 
-            // 支付方式对应的二维码图片URL
             const paymentImages = {
                 wechat: 'https://cdn.uegee.com/anheyu/WeChatPAY.png',
-                alipay: 'https://cdn.uegee.com/anheyu/AliPay.png', // 替换为实际的支付宝二维码URL
-                usdt: 'https://img.uegee.com/i/2025/11/21/gpjmyi.png',   // 替换为实际的USDT二维码URL
-                qq: 'https://cdn.uegee.com/anheyu/QQPay.png'       // 替换为实际的QQ二维码URL
+                alipay: 'https://cdn.uegee.com/anheyu/AliPay.png',
+                usdt: 'https://img.uegee.com/i/2025/11/21/gpjmyi.png',
+                qq: 'https://cdn.uegee.com/anheyu/QQPay.png'
             };
 
-            // 检查本地存储的主题设置
             const savedTheme = localStorage.getItem('theme') || 'light';
             if (savedTheme === 'dark') {
                 body.className = 'theme-dark';
-                themeToggle.textContent = '☀️ 白天模式';
+                themeToggle.textContent = '☀️';
             }
 
-            // 主题切换功能
             themeToggle.addEventListener('click', function () {
                 if (body.classList.contains('theme-light')) {
                     body.className = 'theme-dark';
-                    themeToggle.textContent = '☀️ 白天模式';
+                    themeToggle.textContent = '☀️';
                     localStorage.setItem('theme', 'dark');
                 } else {
                     body.className = 'theme-light';
-                    themeToggle.textContent = '🌙 暗夜模式';
+                    themeToggle.textContent = '🌙';
                     localStorage.setItem('theme', 'light');
                 }
             });
-
-            // 支付方式切换功能
             paymentButtons.forEach(button => {
                 button.addEventListener('click', function () {
                     const paymentType = this.getAttribute('data-payment');
-
-                    // 更新按钮状态
                     paymentButtons.forEach(btn => btn.classList.remove('active'));
                     this.classList.add('active');
-
-                    // 更新二维码图片
                     qrImage.src = paymentImages[paymentType];
                     qrImage.alt = `${paymentType}支付二维码`;
                 });
