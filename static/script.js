@@ -1,4 +1,4 @@
-console.log('hi~')
+console.log('Author: https://github.com/obentnet')
 const queryString = window.location.search.slice(1);
 if (queryString === 'blog') {
     window.location.href = 'https://uegee.com/';
