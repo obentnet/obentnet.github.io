@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookmark Tidy | Chrome书签整理工具</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Chrome书签整理工具">
+    <meta name="keywords" content="Chrome书签整理工具">
+</head>
+<body>
+
+    <header>
+        <h1>Bookmark Tidy | Chrome书签整理工具</h1>
+        <div>
+            <label for="file-upload" class="button primary">📂 导入 Chrome 书签 HTML</label>
+            <input type="file" id="file-upload" accept=".html" style="display: none;">
+            
+            <button id="export-btn" class="button success" disabled>💾 导出整理后的书签</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="drag-container" id="unorganized-pool">
+            <h2>待整理池</h2>
+            <div class="drag-list" id="unorganized-list">
+                </div>
+        </section>
+
+        <section id="folder-workspace">
+            <h2>文件夹工作区</h2>
+            <div id="folder-controls">
+                <input type="text" id="new-folder-name" placeholder="输入新文件夹名称...">
+                <button id="create-folder-btn" class="button secondary">+</button>
+            </div>
+            
+            <div id="folders-container">
+                </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
