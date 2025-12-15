@@ -32,17 +32,17 @@ main {
     background-color: #fff;
     border-radius: 8px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-    min-height: 400px;
+    min-height: 70vh; /* 增加高度 */
     overflow-y: auto;
 }
 
 #unorganized-pool {
-    flex: 1; /* 待整理区占一份 */
+    flex: 1; 
     max-width: 300px;
 }
 
 #folder-workspace {
-    flex: 3; /* 文件夹区占三份 */
+    flex: 3; 
 }
 
 #folders-container {
@@ -72,6 +72,10 @@ main {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+    /* 新增：用于 flex 布局 */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .dragging {
@@ -92,6 +96,7 @@ main {
     color: #007bff;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .folder-box .drag-list {
@@ -122,4 +127,16 @@ main {
 .secondary {
     background-color: #6c757d;
     color: white;
+}
+
+#folder-controls {
+    display: flex;
+    gap: 10px;
+}
+
+#new-folder-name {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }

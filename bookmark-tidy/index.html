@@ -3,15 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bookmark Tidy | Chrome书签整理工具</title>
+    <title>原生 JS 书签整理工具</title>
     <link rel="stylesheet" href="style.css">
-    <meta name="description" content="Chrome书签整理工具">
-    <meta name="keywords" content="Chrome书签整理工具">
+    
+    <style>
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 100; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgba(0,0,0,0.4); 
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto; 
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .close-btn {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover, .close-btn:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .modal-input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        
+        .modal-actions {
+            text-align: right;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
 
     <header>
-        <h1>Bookmark Tidy | Chrome书签整理工具</h1>
+        <h1>书签整理工具 (原生JS)</h1>
         <div>
             <label for="file-upload" class="button primary">📂 导入 Chrome 书签 HTML</label>
             <input type="file" id="file-upload" accept=".html" style="display: none;">
@@ -38,6 +88,24 @@
                 </div>
         </section>
     </main>
+
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h3>编辑书签</h3>
+
+            <label for="edit-title">标题:</label>
+            <input type="text" id="edit-title" class="modal-input">
+
+            <label for="edit-url">链接 (URL):</label>
+            <input type="text" id="edit-url" class="modal-input">
+            
+            <div class="modal-actions">
+                <button id="cancel-edit-btn" class="button secondary">取消</button>
+                <button id="save-edit-btn" class="button primary">保存</button>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
